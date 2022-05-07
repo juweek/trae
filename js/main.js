@@ -66,7 +66,7 @@ METHOD: load in the map
 d3.json("https://raw.githubusercontent.com/xuanyoulim/fcc-internet-complaints-map/master/counties-albers-10m.json").then(function(us){
 	path = d3.geoPath();
 
-	const svg = d3.select("body").append("svg")
+	const svg = d3.select("#svganchor").append("svg")
 					.attr("viewBox", [-10, 0, 975, 610]);
 
 	// outline us map
