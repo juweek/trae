@@ -172,13 +172,13 @@ METHOD: there will be hundreds of blobs per  rorschach test
 		this.options.x,
 		this.options.y,
 		this.options.radius,
-		0,
+		1,
 		2 * Math.PI
 	  );
 	  this.ctx.fill();
 	}
   
-	// this is where the blobs will increase in size. what causes a blob to increase? points per touch? 
+	// this is when the blobs first load, and the Between determins the amount of seconds it takes for them to grow in size
 	grow() {
 	  if (this.tween) this.tween.kill();
 	  this.tween = TweenMax.to(this.options, Between(0.5, 1), {
@@ -192,10 +192,10 @@ METHOD: there will be hundreds of blobs per  rorschach test
 	  });
 	}
   
-	// this is similar to the GROW function, but notice that the tween method id between 10 and 15 instead of .5 and 1
+	// this is similar to the GROW function, but this is related to how long it takes for the blobs to move/live. the radius determines what size the blobs will be when the LIVE animation finishes running
 	live() {
 	  if (this.tween) this.tween.kill();
-	  this.tween = TweenMax.to(this.options, Between(10, 15), {
+	  this.tween = TweenMax.to(this.options, 6.04, {
 		radius: Between(5, 8),
 		x: Between(-this.targetWidth, this.targetWidth),
 		y: Between(-this.targetHeight, this.targetHeight),
@@ -206,6 +206,7 @@ METHOD: there will be hundreds of blobs per  rorschach test
 	  });
 	}
   
+	// this is similar to the GROW function, but this is related to what happens after the LIVE animation finishes. they reset to a radius of 15
 	transition() {
 	  if (this.tween) this.tween.kill();
 	  this.tween = TweenMax.to(this.options, 1, {
@@ -220,7 +221,7 @@ METHOD: there will be hundreds of blobs per  rorschach test
 		  };
 		  setTimeout(() => {
 			this.grow();
-		  }, 500);
+		  }, 200);
 		}
 	  });
 	}
