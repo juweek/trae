@@ -182,7 +182,7 @@ METHOD: there will be hundreds of blobs per  rorschach test
 	grow() {
 	  if (this.tween) this.tween.kill();
 	  this.tween = TweenMax.to(this.options, Between(0.5, 1), {
-		radius: Between(5, 8),
+		radius: Between(7, 9),
 		x: Between(-this.targetWidth, this.targetWidth),
 		y: Between(-this.targetHeight, this.targetHeight),
 		opacity: 1,
@@ -195,8 +195,8 @@ METHOD: there will be hundreds of blobs per  rorschach test
 	// this is similar to the GROW function, but this is related to how long it takes for the blobs to move/live. the radius determines what size the blobs will be when the LIVE animation finishes running
 	live() {
 	  if (this.tween) this.tween.kill();
-	  this.tween = TweenMax.to(this.options, 6.04, {
-		radius: Between(5, 8),
+	  this.tween = TweenMax.to(this.options, 6.3, {
+		radius: Between(7, 9),
 		x: Between(-this.targetWidth, this.targetWidth),
 		y: Between(-this.targetHeight, this.targetHeight),
 		opacity: 1,
